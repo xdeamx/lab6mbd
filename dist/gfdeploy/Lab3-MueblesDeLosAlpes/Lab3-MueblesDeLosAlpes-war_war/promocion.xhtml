@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+    Document   : catalogo
+    Created on : 24-jul-2011, 20:26:26
+    Author     : Juan Sebastián Urrego
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/main-template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:param name="titulo" value="Catálogo de muebles" />
+    <ui:define name="body">
+
+        <!-- Header de la página -->
+        <h1>Promocion</h1>
+        
+        
+        <ice:dataTable
+                    id="data"
+                    value="#{promocionBean.mueble}"
+                    var="file"
+                    scrollable="false"
+                    scrollHeight="100px"
+                    cellpadding="0"
+                    resizable="true"
+                    rows="5">
+
+                    <ice:column>
+
+                        <f:facet name="header">
+                            Referencia
+                        </f:facet>
+                        <ice:outputText value="#{file.referencia}"/>
+                    </ice:column>
+                    <ice:column style="width:40px">
+                        <f:facet name="header">
+                            Imágen
+                        </f:facet>
+                        <ice:graphicImage url="./resources/img/pag/#{file.imagen}_small.png"/>
+                    </ice:column>
+                    <ice:column>
+                        <f:facet name="header">
+                            Nombre
+                        </f:facet>
+                        <ice:outputText value="#{file.nombre}"/>
+                    </ice:column>
+                    <ice:column style="width:260px">
+                        <f:facet name="header">
+                            Descripción
+                        </f:facet>
+                        <ice:outputText value="#{file.descripcion}"/>
+                    </ice:column>
+                    <ice:column>
+                        <f:facet name="header">
+                            Tipo
+                        </f:facet>
+                        <ice:outputText value="#{file.tipo}"/>
+                    </ice:column>
+                    <ice:column>
+                        <f:facet name="header">
+                            <ice:outputText
+                                value="Remover"
+                                style="color:white"/>
+                        </f:facet>
+                        <ice:panelGroup style="background-color: transparent">
+
+                            <ice:commandLink id="DDRtn"
+                                             actionListener="#{catalogoBean.eliminarMueble}"
+                                             value="Eliminar">
+                                <f:param name="muebleId" value="#{file.referencia}" />
+
+                            </ice:commandLink>
+                        </ice:panelGroup>
+                    </ice:column>
+                    
+                    
+                     <ice:column>
+                        <f:facet name="header">
+                            <ice:outputText
+                                value="Remover"
+                                style="color:white"/>
+                        </f:facet>
+                        <ice:panelGroup style="background-color: transparent">
+
+                            <ice:commandLink id="DDRtn"
+                                             action="#{catalogoBean.agregarPromocion(file.referencia)}"
+                                             value="Eliminar">
+                                <f:param name="muebleId" value="#{file.referencia}" />
+
+                            </ice:commandLink>
+                        </ice:panelGroup>
+                    </ice:column>
+                    
+                </ice:dataTable>
+
+        <ice:panelGroup>
+            <h:form>
+                <div align="right" style="padding-right: 10px;">
+                    <ice:commandButton style="background: transparent" image="./resources/img/pag/atras.png" action="menu.jsf"/>
+                </div>
+            </h:form>
+        </ice:panelGroup>
+        </h:form>
+    </ui:define>
+
+
+</ui:composition>
