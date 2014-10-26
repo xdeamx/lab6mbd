@@ -14,6 +14,7 @@ package com.losalpes.servicios;
 
 import com.losalpes.entities.ExperienciaVendedor;
 import com.losalpes.entities.Mueble;
+import com.losalpes.entities.Promocion;
 import com.losalpes.entities.RegistroVenta;
 import com.losalpes.entities.TipoMueble;
 import com.losalpes.entities.TipoUsuario;
@@ -56,6 +57,11 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
      * Lista con los registros de ventas
      */
     private static ArrayList<RegistroVenta> registrosVentas;
+    
+    /**
+     * Lista de promociones
+     */
+    private static ArrayList<Promocion> promociones;
 
     //-----------------------------------------------------------
     // Constructor
@@ -115,6 +121,8 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
                 venta.setCiudad("Bogotá");
             }
         }
+        
+        promociones = new ArrayList<Promocion>();
     }
 
     //-----------------------------------------------------------
@@ -160,6 +168,10 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
         else if (obj instanceof RegistroVenta)
         {
             registrosVentas.add((RegistroVenta) obj);
+        }
+        else if (obj instanceof Promocion)
+        {
+            promociones.add((Promocion) obj);
         }
     }
 

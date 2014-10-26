@@ -240,14 +240,14 @@
                      <ice:column>
                         <f:facet name="header">
                             <ice:outputText
-                                value="Remover"
+                                value="Promoción"
                                 style="color:white"/>
                         </f:facet>
                         <ice:panelGroup style="background-color: transparent">
 
-                            <ice:commandLink id="DDRtn"
-                                             action="#{catalogoBean.agregarPromocion(file.referencia)}"
-                                             value="Eliminar">
+                            <ice:commandLink id="promocionaccess"
+                                             action="#{promocionBean.agregarPromocion(file.referencia)}"
+                                             value="Crear">
                                 <f:param name="muebleId" value="#{file.referencia}" />
 
                             </ice:commandLink>

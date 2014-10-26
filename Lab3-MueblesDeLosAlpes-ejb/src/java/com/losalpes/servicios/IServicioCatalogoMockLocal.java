@@ -13,6 +13,8 @@
 package com.losalpes.servicios;
 
 import com.losalpes.entities.Mueble;
+import com.losalpes.entities.Promocion;
+import com.losalpes.excepciones.OperacionInvalidaException;
 import java.util.List;
 
 /**
@@ -45,5 +47,11 @@ public interface IServicioCatalogoMockLocal
      * @param id Identificador único del mueble
      */
     public void removerEjemplarMueble(long id);
+    
+   /**
+     * Agrega una promocion de un producto
+     * @param promocion 
+     */
+    public void agregarPromocion(Promocion promocion) throws OperacionInvalidaException;
 
 }

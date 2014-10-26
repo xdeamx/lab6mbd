@@ -14,5 +14,5 @@ import javax.ejb.Local;
  */
 @Local
 public interface VentasSessionBeanLocal {
-    
+     public void anunciarNuevaPromocion(String msj);
 }

@@ -12,6 +12,7 @@
 
 package com.losalpes.servicios;
 
+import com.losalpes.entities.Promocion;
 import com.losalpes.entities.Vendedor;
 import com.losalpes.excepciones.OperacionInvalidaException;
 import java.util.List;

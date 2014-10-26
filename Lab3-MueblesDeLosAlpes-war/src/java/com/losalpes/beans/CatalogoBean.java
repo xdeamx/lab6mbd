@@ -19,6 +19,7 @@ import com.losalpes.servicios.ServicioCatalogoMock;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import javax.ejb.EJB;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
@@ -43,6 +44,7 @@ public class CatalogoBean implements Serializable
     /**
      * Relación con la interfaz que provee los servicios necesarios del catálogo.
      */
+    @EJB
     private IServicioCatalogoMockLocal catalogo;
 
     //-----------------------------------------------------------
@@ -55,7 +57,6 @@ public class CatalogoBean implements Serializable
     public CatalogoBean()
     {
         mueble=new Mueble();
-        catalogo=new ServicioCatalogoMock();
     }
 
     //-----------------------------------------------------------
